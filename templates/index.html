@@ -196,7 +196,6 @@
   <!-- TARJETA Y FORMULARIOS ORIGINALES -->
   <div class="card">
     <div class="brand">
-      
       <div>
         <h1>Silpo Track</h1>
         <div class="subtitle">Asistente profesional de soporte y gestión de envios</div>
@@ -257,6 +256,9 @@
           <a href="/" class="btn secondary" style="text-decoration:none;text-align:center;">Cancelar</a>
         </div>
       </div>
+
+      <!-- CHECK DE PAGO CONFIRMADO -->
+      <div id="pagoConfirmado" style="font-size:16px; color:green; font-weight:bold; display:none; margin-top:10px;">✅ Pago confirmado</div>
     </form>
     {% endif %}
   </div>
@@ -365,12 +367,18 @@ if (pagoForm) {
       <style>@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}</style>
     `;
     pagoForm.appendChild(spinner);
+
+    // MOSTRAR EL CHECK ✅
+    const check = document.getElementById('pagoConfirmado');
+    if(check) check.style.display = 'block';
   });
 }
 </script>
 
 </body>
 </html>
+
+
 
 
 
